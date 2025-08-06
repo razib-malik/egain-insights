@@ -52,37 +52,17 @@ if search_query:
         | filtered["total_pages_viewed"].astype(str).str.contains(search_query_lower)
     ]
 
-# Show visitor sessions
-st.subheader("Visitor Sessions")
-session_groups = filtered.groupby("session_id")
-
-for session_id, group in session_groups:
-    visitor_ip = group["ip"].iloc[0]
-    enrichment = enrich_ip(visitor_ip)
-
-    with st.expander(f"Session {session_id} - {visitor_ip}"):
-        st.write(f"**Company**: {group['company_name'].iloc[0]}")
-        st.write(f"**Location**: {group['state'].iloc[0]}")
-        st.write(f"**Vertical**: {group['vertical'].iloc[0]}")
-        st.write(f"**Repeat Visits**: {group['repeat_visits'].iloc[0]}")
-        st.write(f"**Pages Viewed**: {group['total_pages_viewed'].iloc[0]}")
-        st.write(f"**Engagement Score**: {group['engagement_score'].iloc[0]}")
-        st.write(f"**CRM Match**: {group['contact_match_in_crm'].iloc[0]}")
-
-        st.markdown("**Page Visits:**")
-        st.table(group[["timestamp", "url", "intent", "sentiment"]].sort_values("timestamp"))
-
-# Summary insights
-st.markdown("---")
+# ---------- Summary Insights ----------
 st.subheader("Summary Insights")
 company_summary = []
 for ip in filtered["ip"].unique():
     visits = filtered[filtered["ip"] == ip]
     company_summary.append({
         "Company": visits["company_name"].iloc[0],
-        "IP": ip,
         "State": visits["state"].iloc[0],
         "Vertical": visits["vertical"].iloc[0],
+        "Sentiment": visits["sentiment"].iloc[0],
+        "Intent": visits["intent"].iloc[0],
         "Sessions": visits["session_id"].nunique(),
         "Pages Viewed": len(visits),
         "Engagement Score": visits["engagement_score"].iloc[0],
@@ -101,6 +81,27 @@ def highlight_engagement(val):
     return f"background-color: {color}; color: white"
 
 styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
-st.dataframe(styled_df, use_container_width=True)
+st.dataframe(styled_df.hide_index(), use_container_width=True)
+
+# ---------- Visitor Sessions ----------
+st.markdown("---")
+st.subheader("Visitor Sessions")
+session_groups = filtered.groupby("session_id")
+
+for session_id, group in session_groups:
+    visitor_ip = group["ip"].iloc[0]
+    enrichment = enrich_ip(visitor_ip)
+
+    with st.expander(f"Session {session_id} - {visitor_ip}"):
+        st.write(f"**Company**: {group['company_name'].iloc[0]}")
+        st.write(f"**Location**: {group['state'].iloc[0]}")
+        st.write(f"**Vertical**: {group['vertical'].iloc[0]}")
+        st.write(f"**Repeat Visits**: {group['repeat_visits'].iloc[0]}")
+        st.write(f"**Pages Viewed**: {group['total_pages_viewed'].iloc[0]}")
+        st.write(f"**Engagement Score**: {group['engagement_score'].iloc[0]}")
+        st.write(f"**CRM Match**: {group['contact_match_in_crm'].iloc[0]}")
+
+        st.markdown("**Page Visits:**")
+        st.table(group[["timestamp", "url", "intent", "sentiment"]].sort_values("timestamp"))
 
 st.markdown("\n---\n🔗 *Note: Data is demo-only. Replace with real weblogs + API enrichment for production.*")
