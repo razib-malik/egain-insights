@@ -1,0 +1,101 @@
+timestamp,ip,url,session_id,company_name,state,vertical,intent,sentiment,contact_match_in_crm,repeat_visits,total_pages_viewed,frequency_score,engagement_score
+2025-07-30 23:09:00,203.0.113.1,/solutions/healthcare,20301131-2611,GovConnect,DC,Government,Industry Intent,Highly Interested,True,29,29,4.142857142857143,81.3
+2025-07-28 21:50:00,203.0.113.1,/,20301131-3549,GovConnect,DC,Government,General,Interested,True,29,29,4.142857142857143,80.3
+2025-07-26 10:27:00,203.0.113.1,/platform/api-docs,20301131-5798,GovConnect,DC,Government,Technical Interest,Highly Interested,True,29,29,4.142857142857143,81.3
+2025-07-29 19:17:00,203.0.113.1,/blog/ai-in-customer-service,20301131-5908,GovConnect,DC,Government,Thought Leadership,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-28 15:42:00,203.0.113.1,/solutions/financial-services,20301131-7286,GovConnect,DC,Government,Industry Intent,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-27 22:25:00,203.0.113.1,/products/knowledge-hub,20301131-9047,GovConnect,DC,Government,Knowledge Interest,Interested,True,29,29,4.142857142857143,80.3
+2025-07-26 12:00:00,203.0.113.1,/products/knowledge-hub,20301131-9440,GovConnect,DC,Government,Knowledge Interest,Interested,True,29,29,4.142857142857143,80.3
+2025-07-29 15:52:00,203.0.113.1,/products/knowledge-hub,20301131-4045,GovConnect,DC,Government,Knowledge Interest,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-26 18:07:00,203.0.113.1,/products/knowledge-hub,20301131-1964,GovConnect,DC,Government,Knowledge Interest,Interested,True,29,29,4.142857142857143,80.3
+2025-07-26 23:00:00,203.0.113.1,/solutions/financial-services,20301131-7626,GovConnect,DC,Government,Industry Intent,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-29 07:00:00,203.0.113.1,/solutions/financial-services,20301131-2236,GovConnect,DC,Government,Industry Intent,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-29 09:54:00,203.0.113.1,/products/knowledge-hub,20301131-1997,GovConnect,DC,Government,Knowledge Interest,Highly Interested,True,29,29,4.142857142857143,81.3
+2025-08-01 00:20:00,203.0.113.1,/solutions/financial-services,20301131-4449,GovConnect,DC,Government,Industry Intent,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-28 22:13:00,203.0.113.1,/products/conversation-hub,20301131-5620,GovConnect,DC,Government,Engagement Tools,Highly Interested,True,29,29,4.142857142857143,81.3
+2025-07-29 22:34:00,203.0.113.1,/solutions/financial-services,20301131-2676,GovConnect,DC,Government,Industry Intent,Highly Interested,True,29,29,4.142857142857143,81.3
+2025-07-29 03:20:00,203.0.113.1,/blog/ai-in-customer-service,20301131-5823,GovConnect,DC,Government,Thought Leadership,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-29 13:52:00,203.0.113.1,/blog/ai-in-customer-service,20301131-6873,GovConnect,DC,Government,Thought Leadership,Highly Interested,True,29,29,4.142857142857143,81.3
+2025-07-30 06:21:00,203.0.113.1,/,20301131-6642,GovConnect,DC,Government,General,Highly Interested,True,29,29,4.142857142857143,81.3
+2025-07-30 05:08:00,203.0.113.1,/products/conversation-hub,20301131-5697,GovConnect,DC,Government,Engagement Tools,Interested,True,29,29,4.142857142857143,80.3
+2025-07-28 04:46:00,203.0.113.1,/contact,20301131-4058,GovConnect,DC,Government,High Intent,Highly Interested,True,29,29,4.142857142857143,81.3
+2025-07-27 06:25:00,203.0.113.1,/platform/api-docs,20301131-7523,GovConnect,DC,Government,Technical Interest,Interested,True,29,29,4.142857142857143,80.3
+2025-07-29 07:06:00,203.0.113.1,/platform/api-docs,20301131-4036,GovConnect,DC,Government,Technical Interest,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-29 02:07:00,203.0.113.1,/contact,20301131-4470,GovConnect,DC,Government,High Intent,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-26 20:27:00,203.0.113.1,/,20301131-3628,GovConnect,DC,Government,General,Interested,True,29,29,4.142857142857143,80.3
+2025-07-28 22:12:00,203.0.113.1,/blog/ai-in-customer-service,20301131-9637,GovConnect,DC,Government,Thought Leadership,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-29 15:32:00,203.0.113.1,/platform/api-docs,20301131-8866,GovConnect,DC,Government,Technical Interest,Interested,True,29,29,4.142857142857143,80.3
+2025-07-29 10:44:00,203.0.113.1,/platform/api-docs,20301131-7244,GovConnect,DC,Government,Technical Interest,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-29 11:24:00,203.0.113.1,/,20301131-6335,GovConnect,DC,Government,General,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-26 03:29:00,203.0.113.1,/,20301131-4010,GovConnect,DC,Government,General,Neutral,True,29,29,4.142857142857143,79.3
+2025-07-29 13:03:00,8.8.8.8,/blog/ai-in-customer-service,8888-1213,Acme Corp,CA,Financial Services,Thought Leadership,Highly Interested,True,26,26,3.7142857142857144,73.2
+2025-07-25 18:17:00,8.8.8.8,/products/conversation-hub,8888-5452,Acme Corp,CA,Financial Services,Engagement Tools,Interested,True,26,26,3.7142857142857144,72.2
+2025-07-25 12:20:00,8.8.8.8,/solutions/healthcare,8888-5670,Acme Corp,CA,Financial Services,Industry Intent,Highly Interested,True,26,26,3.7142857142857144,73.2
+2025-07-31 00:01:00,8.8.8.8,/products/conversation-hub,8888-9438,Acme Corp,CA,Financial Services,Engagement Tools,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-30 14:41:00,8.8.8.8,/solutions/healthcare,8888-8982,Acme Corp,CA,Financial Services,Industry Intent,Interested,True,26,26,3.7142857142857144,72.2
+2025-07-31 13:01:00,8.8.8.8,/solutions/financial-services,8888-6507,Acme Corp,CA,Financial Services,Industry Intent,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-26 04:30:00,8.8.8.8,/solutions/financial-services,8888-4552,Acme Corp,CA,Financial Services,Industry Intent,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-30 23:56:00,8.8.8.8,/blog/ai-in-customer-service,8888-5003,Acme Corp,CA,Financial Services,Thought Leadership,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-27 13:24:00,8.8.8.8,/,8888-8513,Acme Corp,CA,Financial Services,General,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-31 16:43:00,8.8.8.8,/blog/ai-in-customer-service,8888-4490,Acme Corp,CA,Financial Services,Thought Leadership,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-25 11:34:00,8.8.8.8,/contact,8888-8568,Acme Corp,CA,Financial Services,High Intent,Interested,True,26,26,3.7142857142857144,72.2
+2025-07-30 17:38:00,8.8.8.8,/platform/api-docs,8888-2573,Acme Corp,CA,Financial Services,Technical Interest,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-25 11:48:00,8.8.8.8,/products/conversation-hub,8888-8357,Acme Corp,CA,Financial Services,Engagement Tools,Highly Interested,True,26,26,3.7142857142857144,73.2
+2025-07-29 15:57:00,8.8.8.8,/products/knowledge-hub,8888-9238,Acme Corp,CA,Financial Services,Knowledge Interest,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-28 03:51:00,8.8.8.8,/,8888-2562,Acme Corp,CA,Financial Services,General,Highly Interested,True,26,26,3.7142857142857144,73.2
+2025-07-27 11:31:00,8.8.8.8,/,8888-6063,Acme Corp,CA,Financial Services,General,Highly Interested,True,26,26,3.7142857142857144,73.2
+2025-07-27 04:39:00,8.8.8.8,/solutions/financial-services,8888-7789,Acme Corp,CA,Financial Services,Industry Intent,Interested,True,26,26,3.7142857142857144,72.2
+2025-07-30 21:33:00,8.8.8.8,/solutions/healthcare,8888-9973,Acme Corp,CA,Financial Services,Industry Intent,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-29 18:43:00,8.8.8.8,/products/conversation-hub,8888-8970,Acme Corp,CA,Financial Services,Engagement Tools,Neutral,True,26,26,3.7142857142857144,71.2
+2025-07-27 04:21:00,8.8.8.8,/,8888-3805,Acme Corp,CA,Financial Services,General,Interested,True,26,26,3.7142857142857144,72.2
+2025-07-31 23:27:00,8.8.8.8,/products/knowledge-hub,8888-5805,Acme Corp,CA,Financial Services,Knowledge Interest,Interested,True,26,26,3.7142857142857144,72.2
+2025-07-31 08:53:00,8.8.8.8,/platform/api-docs,8888-8239,Acme Corp,CA,Financial Services,Technical Interest,Highly Interested,True,26,26,3.7142857142857144,73.2
+2025-07-27 12:12:00,8.8.8.8,/,8888-8522,Acme Corp,CA,Financial Services,General,Highly Interested,True,26,26,3.7142857142857144,73.2
+2025-07-28 06:14:00,8.8.8.8,/platform/api-docs,8888-2914,Acme Corp,CA,Financial Services,Technical Interest,Interested,True,26,26,3.7142857142857144,72.2
+2025-07-25 16:45:00,8.8.8.8,/solutions/financial-services,8888-7187,Acme Corp,CA,Financial Services,Industry Intent,Interested,True,26,26,3.7142857142857144,72.2
+2025-07-31 23:33:00,8.8.8.8,/platform/api-docs,8888-1481,Acme Corp,CA,Financial Services,Technical Interest,Highly Interested,True,26,26,3.7142857142857144,73.2
+2025-07-27 00:42:00,1.1.1.1,/solutions/healthcare,1111-1245,HealthSys,NY,Healthcare,Industry Intent,Neutral,False,25,25,3.5714285714285716,68.5
+2025-07-28 22:29:00,1.1.1.1,/solutions/healthcare,1111-6657,HealthSys,NY,Healthcare,Industry Intent,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-27 06:40:00,1.1.1.1,/,1111-4263,HealthSys,NY,Healthcare,General,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-30 13:57:00,1.1.1.1,/platform/api-docs,1111-3213,HealthSys,NY,Healthcare,Technical Interest,Neutral,False,25,25,3.5714285714285716,68.5
+2025-08-01 08:05:00,1.1.1.1,/products/conversation-hub,1111-6354,HealthSys,NY,Healthcare,Engagement Tools,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-26 07:24:00,1.1.1.1,/platform/api-docs,1111-6093,HealthSys,NY,Healthcare,Technical Interest,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-26 22:10:00,1.1.1.1,/products/knowledge-hub,1111-8234,HealthSys,NY,Healthcare,Knowledge Interest,Neutral,False,25,25,3.5714285714285716,68.5
+2025-07-26 15:09:00,1.1.1.1,/products/knowledge-hub,1111-7720,HealthSys,NY,Healthcare,Knowledge Interest,Neutral,False,25,25,3.5714285714285716,68.5
+2025-07-31 02:30:00,1.1.1.1,/solutions/healthcare,1111-9143,HealthSys,NY,Healthcare,Industry Intent,Neutral,False,25,25,3.5714285714285716,68.5
+2025-07-29 13:09:00,1.1.1.1,/blog/ai-in-customer-service,1111-5801,HealthSys,NY,Healthcare,Thought Leadership,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-26 01:09:00,1.1.1.1,/blog/ai-in-customer-service,1111-9754,HealthSys,NY,Healthcare,Thought Leadership,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-27 22:30:00,1.1.1.1,/products/knowledge-hub,1111-7547,HealthSys,NY,Healthcare,Knowledge Interest,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-26 15:55:00,1.1.1.1,/,1111-8847,HealthSys,NY,Healthcare,General,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-25 19:07:00,1.1.1.1,/contact,1111-8989,HealthSys,NY,Healthcare,High Intent,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-29 11:34:00,1.1.1.1,/platform/api-docs,1111-1224,HealthSys,NY,Healthcare,Technical Interest,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-29 01:21:00,1.1.1.1,/blog/ai-in-customer-service,1111-9151,HealthSys,NY,Healthcare,Thought Leadership,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-27 18:27:00,1.1.1.1,/solutions/healthcare,1111-7360,HealthSys,NY,Healthcare,Industry Intent,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-26 12:42:00,1.1.1.1,/contact,1111-5318,HealthSys,NY,Healthcare,High Intent,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-28 12:21:00,1.1.1.1,/platform/api-docs,1111-2907,HealthSys,NY,Healthcare,Technical Interest,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-30 08:41:00,1.1.1.1,/contact,1111-6003,HealthSys,NY,Healthcare,High Intent,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-28 01:26:00,1.1.1.1,/solutions/healthcare,1111-4020,HealthSys,NY,Healthcare,Industry Intent,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-28 21:05:00,1.1.1.1,/solutions/financial-services,1111-2523,HealthSys,NY,Healthcare,Industry Intent,Neutral,False,25,25,3.5714285714285716,68.5
+2025-07-29 23:40:00,1.1.1.1,/blog/ai-in-customer-service,1111-6448,HealthSys,NY,Healthcare,Thought Leadership,Interested,False,25,25,3.5714285714285716,69.5
+2025-07-31 21:09:00,1.1.1.1,/platform/api-docs,1111-1997,HealthSys,NY,Healthcare,Technical Interest,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-29 14:22:00,1.1.1.1,/contact,1111-6428,HealthSys,NY,Healthcare,High Intent,Highly Interested,False,25,25,3.5714285714285716,70.5
+2025-07-28 17:52:00,198.51.100.2,/contact,198511002-8679,RetailNext,GA,Retail,High Intent,Interested,False,20,20,2.857142857142857,56.0
+2025-07-27 20:52:00,198.51.100.2,/platform/api-docs,198511002-5296,RetailNext,GA,Retail,Technical Interest,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-07-26 07:03:00,198.51.100.2,/platform/api-docs,198511002-1168,RetailNext,GA,Retail,Technical Interest,Interested,False,20,20,2.857142857142857,56.0
+2025-07-29 15:14:00,198.51.100.2,/solutions/financial-services,198511002-4543,RetailNext,GA,Retail,Industry Intent,Interested,False,20,20,2.857142857142857,56.0
+2025-07-29 06:10:00,198.51.100.2,/blog/ai-in-customer-service,198511002-7620,RetailNext,GA,Retail,Thought Leadership,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-07-27 16:38:00,198.51.100.2,/,198511002-2512,RetailNext,GA,Retail,General,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-07-26 14:35:00,198.51.100.2,/platform/api-docs,198511002-6402,RetailNext,GA,Retail,Technical Interest,Interested,False,20,20,2.857142857142857,56.0
+2025-08-01 01:51:00,198.51.100.2,/contact,198511002-6862,RetailNext,GA,Retail,High Intent,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-07-29 17:30:00,198.51.100.2,/products/knowledge-hub,198511002-1733,RetailNext,GA,Retail,Knowledge Interest,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-07-31 12:28:00,198.51.100.2,/platform/api-docs,198511002-1956,RetailNext,GA,Retail,Technical Interest,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-07-27 14:51:00,198.51.100.2,/,198511002-5814,RetailNext,GA,Retail,General,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-07-31 02:23:00,198.51.100.2,/contact,198511002-4542,RetailNext,GA,Retail,High Intent,Neutral,False,20,20,2.857142857142857,55.0
+2025-07-30 07:29:00,198.51.100.2,/blog/ai-in-customer-service,198511002-5251,RetailNext,GA,Retail,Thought Leadership,Neutral,False,20,20,2.857142857142857,55.0
+2025-07-29 21:32:00,198.51.100.2,/solutions/healthcare,198511002-1275,RetailNext,GA,Retail,Industry Intent,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-08-01 03:23:00,198.51.100.2,/products/conversation-hub,198511002-9797,RetailNext,GA,Retail,Engagement Tools,Interested,False,20,20,2.857142857142857,56.0
+2025-07-27 05:02:00,198.51.100.2,/solutions/healthcare,198511002-4027,RetailNext,GA,Retail,Industry Intent,Highly Interested,False,20,20,2.857142857142857,57.0
+2025-07-27 04:25:00,198.51.100.2,/blog/ai-in-customer-service,198511002-4394,RetailNext,GA,Retail,Thought Leadership,Interested,False,20,20,2.857142857142857,56.0
+2025-07-27 11:32:00,198.51.100.2,/solutions/healthcare,198511002-3869,RetailNext,GA,Retail,Industry Intent,Interested,False,20,20,2.857142857142857,56.0
+2025-07-31 20:43:00,198.51.100.2,/products/knowledge-hub,198511002-9065,RetailNext,GA,Retail,Knowledge Interest,Neutral,False,20,20,2.857142857142857,55.0
+2025-07-30 11:46:00,198.51.100.2,/blog/ai-in-customer-service,198511002-6902,RetailNext,GA,Retail,Thought Leadership,Highly Interested,False,20,20,2.857142857142857,57.0
