@@ -90,6 +90,17 @@ for ip in filtered["ip"].unique():
     })
 
 summary_df = pd.DataFrame(company_summary).sort_values("Last Visit", ascending=False)
-st.dataframe(summary_df, use_container_width=True)
+
+# Color-coding Engagement Score
+def highlight_engagement(val):
+    color = "blue"
+    if val > 50:
+        color = "red"
+    elif val > 30:
+        color = "green"
+    return f"background-color: {color}; color: white"
+
+styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
+st.dataframe(styled_df, use_container_width=True)
 
 st.markdown("\n---\n🔗 *Note: Data is demo-only. Replace with real weblogs + API enrichment for production.*")
