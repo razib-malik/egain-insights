@@ -81,7 +81,8 @@ def highlight_engagement(val):
     return f"background-color: {color}; color: white"
 
 styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
-st.dataframe(styled_df.hide_index(), use_container_width=True)
+#st.dataframe(styled_df.hide_index(), use_container_width=True)
+st.dataframe(styled_df, use_container_width=True)
 
 # ---------- Visitor Sessions ----------
 st.markdown("---")
