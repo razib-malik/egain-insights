@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 from datetime import datetime
+import plotly.express as px
 
 # ---------- CONFIG ----------
 # Sample enrichment using IPinfo (mock function)
@@ -74,15 +75,27 @@ summary_df = pd.DataFrame(company_summary).sort_values("Last Visit", ascending=F
 # Color-coding Engagement Score
 def highlight_engagement(val):
     color = "blue"
-    if val > 80:
+    if val > 50:
         color = "red"
-    elif val > 60:
+    elif val > 30:
         color = "green"
     return f"background-color: {color}; color: white"
 
 styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
-#st.dataframe(styled_df.hide_index(), use_container_width=True)
-st.dataframe(styled_df, use_container_width=True)
+st.dataframe(styled_df.hide_index(), use_container_width=True)
+
+# ---------- Dynamic Pie Charts ----------
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("### 📊 Sessions by Company")
+    fig_sessions = px.pie(summary_df, names="Company", values="Sessions", title="Sessions Distribution")
+    st.plotly_chart(fig_sessions, use_container_width=True)
+
+with col2:
+    st.markdown("### 📊 Pages Viewed by Company")
+    fig_pages = px.pie(summary_df, names="Company", values="Pages Viewed", title="Pages Viewed Distribution")
+    st.plotly_chart(fig_pages, use_container_width=True)
 
 # ---------- Visitor Sessions ----------
 st.markdown("---")
