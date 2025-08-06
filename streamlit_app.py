@@ -18,7 +18,7 @@ def enrich_ip(ip):
 # Load data (replace with your own log file)
 @st.cache_data
 def load_data():
-    data = pd.read_csv("sample_weblogs1.csv")
+    data = pd.read_csv("sample_weblogs_enriched.csv")
     data["timestamp"] = pd.to_datetime(data["timestamp"])
     return data
 
@@ -30,17 +30,23 @@ data = load_data()
 
 # Sidebar filters
 st.sidebar.header("Search Filters")
-unique_ips = data["ip"].unique()
-selected_ip = st.sidebar.selectbox("Select Visitor IP", ["All"] + list(unique_ips))
+
+# Map IPs to company names
+ip_company_map = data.groupby("ip")["company_name"].first().to_dict()
+company_names = [ip_company_map[ip] for ip in data["ip"].unique()]
+company_ip_map = {ip_company_map[ip]: ip for ip in data["ip"].unique()}
+
+selected_company = st.sidebar.selectbox("Select Company", ["All"] + company_names)
 start_date = st.sidebar.date_input("Start Date", data["timestamp"].min().date())
 end_date = st.sidebar.date_input("End Date", data["timestamp"].max().date())
 
 # Text-based search bar
 search_query = st.text_input("🔎 Search (company, state, vertical, pages viewed...)", "")
 
-# Filter by date and IP
+# Filter by date and company
 filtered = data[(data["timestamp"].dt.date >= start_date) & (data["timestamp"].dt.date <= end_date)]
-if selected_ip != "All":
+if selected_company != "All":
+    selected_ip = company_ip_map[selected_company]
     filtered = filtered[filtered["ip"] == selected_ip]
 
 # Filter by search query
@@ -71,18 +77,18 @@ for ip in filtered["ip"].unique():
     })
 
 summary_df = pd.DataFrame(company_summary).sort_values("Last Visit", ascending=False)
-st.dataframe(summary_df, use_container_width=True)
 
 # Color-coding Engagement Score
 def highlight_engagement(val):
     color = "blue"
-    if val > 50:
+    if val > 80:
         color = "red"
-    elif val > 30:
+    elif val > 50:
         color = "green"
     return f"background-color: {color}; color: white"
 
 styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
+st.dataframe(summary_df, use_container_width=True)
 
 # ---------- Dynamic Pie Charts ----------
 col1, col2 = st.columns(2)
