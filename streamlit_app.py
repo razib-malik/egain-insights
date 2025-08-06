@@ -71,7 +71,7 @@ for ip in filtered["ip"].unique():
     })
 
 summary_df = pd.DataFrame(company_summary).sort_values("Last Visit", ascending=False)
-st.dataframe(styled_df, use_container_width=True)
+st.dataframe(summary_df, use_container_width=True)
 
 # Color-coding Engagement Score
 def highlight_engagement(val):
