@@ -21,18 +21,6 @@ def load_data():
     data["timestamp"] = pd.to_datetime(data["timestamp"])
     return data
 
-'''
-def load_data():
-    # Placeholder structure
-    data = pd.DataFrame([
-        {"timestamp": "2025-08-01 13:14:10", "ip": "8.8.8.8", "url": "/platform/api-docs", "session_id": "abc123"},
-        {"timestamp": "2025-08-01 13:16:32", "ip": "8.8.8.8", "url": "/products/knowledge-hub", "session_id": "abc123"},
-        {"timestamp": "2025-08-02 09:22:11", "ip": "1.1.1.1", "url": "/", "session_id": "xyz789"},
-        {"timestamp": "2025-08-02 09:24:07", "ip": "1.1.1.1", "url": "/solutions/financial-services", "session_id": "xyz789"}
-    ])
-    data["timestamp"] = pd.to_datetime(data["timestamp"])
-    return data
-'''
 # ---------- UI ----------
 st.set_page_config(page_title="eGain Visitor Insights", layout="wide")
 st.title("🔍 eGain Sales Intelligence Dashboard")
