@@ -83,7 +83,7 @@ def highlight_engagement(val):
     color = "blue"
     if val > 80:
         color = "red"
-    elif val > 50:
+    elif val > 60:
         color = "green"
     return f"background-color: {color}; color: white"
 
