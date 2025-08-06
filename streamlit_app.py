@@ -41,7 +41,7 @@ start_date = st.sidebar.date_input("Start Date", data["timestamp"].min().date())
 end_date = st.sidebar.date_input("End Date", data["timestamp"].max().date())
 
 # Text-based search bar
-search_query = st.text_input("🔎 Search (company, state, vertical ...)", "")
+search_query = st.text_input("🔎 Search (company, state, vertical)", "")
 
 # Filter by date and company
 filtered = data[(data["timestamp"].dt.date >= start_date) & (data["timestamp"].dt.date <= end_date)]
