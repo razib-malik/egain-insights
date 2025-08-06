@@ -82,7 +82,6 @@ def highlight_engagement(val):
     return f"background-color: {color}; color: white"
 
 styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
-st.dataframe(styled_df.hide_index(), use_container_width=True)
 
 # ---------- Dynamic Pie Charts ----------
 col1, col2 = st.columns(2)
