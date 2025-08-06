@@ -74,9 +74,9 @@ summary_df = pd.DataFrame(company_summary).sort_values("Last Visit", ascending=F
 # Color-coding Engagement Score
 def highlight_engagement(val):
     color = "blue"
-    if val > 50:
+    if val > 80:
         color = "red"
-    elif val > 30:
+    elif val > 60:
         color = "green"
     return f"background-color: {color}; color: white"
 
