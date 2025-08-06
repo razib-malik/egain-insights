@@ -59,103 +59,106 @@ if search_query:
         | filtered["total_pages_viewed"].astype(str).str.contains(search_query_lower)
     ]
 
-# ---------- Summary Insights ----------
-st.subheader("Summary Insights")
-company_summary = []
-for ip in filtered["ip"].unique():
-    visits = filtered[filtered["ip"] == ip]
-    company_summary.append({
-        "Company": visits["company_name"].iloc[0],
-        "State": visits["state"].iloc[0],
-        "Vertical": visits["vertical"].iloc[0],
-        "Sentiment": visits["sentiment"].iloc[0],
-        "Intent": visits["intent"].iloc[0],
-        "Sessions": visits["session_id"].nunique(),
-        "Pages Viewed": len(visits),
-        "Engagement Score": visits["engagement_score"].iloc[0],
-        "Last Visit": visits["timestamp"].max().strftime("%Y-%m-%d %H:%M")
-    })
-
-summary_df = pd.DataFrame(company_summary).sort_values("Last Visit", ascending=False)
-
-# Color-coding Engagement Score
-def highlight_engagement(val):
-    color = "blue"
-    if val > 80:
-        color = "red"
-    elif val > 60:
-        color = "green"
-    return f"background-color: {color}; color: white"
-
-styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
-st.dataframe(styled_df, use_container_width=True)
-
-# ---------- Charts ----------
-if selected_company == "All":
-    col1, col2 = st.columns(2)
-    with col1:
-        st.markdown("### 📊 Sessions by Company")
-        fig_sessions = px.pie(summary_df, names="Company", values="Sessions", title="Sessions Distribution")
-        st.plotly_chart(fig_sessions, use_container_width=True)
-    with col2:
-        st.markdown("### 📊 Pages Viewed by Company")
-        fig_pages = px.pie(summary_df, names="Company", values="Pages Viewed", title="Pages Viewed Distribution")
-        st.plotly_chart(fig_pages, use_container_width=True)
+if filtered.empty:
+    st.warning("🚫 No results found!")
 else:
-    col1, col2 = st.columns(2)
+    # ---------- Summary Insights ----------
+    st.subheader("Summary Insights")
+    company_summary = []
+    for ip in filtered["ip"].unique():
+        visits = filtered[filtered["ip"] == ip]
+        company_summary.append({
+            "Company": visits["company_name"].iloc[0],
+            "State": visits["state"].iloc[0],
+            "Vertical": visits["vertical"].iloc[0],
+            "Sentiment": visits["sentiment"].iloc[0],
+            "Intent": visits["intent"].iloc[0],
+            "Sessions": visits["session_id"].nunique(),
+            "Pages Viewed": len(visits),
+            "Engagement Score": visits["engagement_score"].iloc[0],
+            "Last Visit": visits["timestamp"].max().strftime("%Y-%m-%d %H:%M")
+        })
 
-    with col1:
-        st.markdown("### 📊 Engagement Score (1–100)")
-        score = summary_df["Engagement Score"].values[0]
+    summary_df = pd.DataFrame(company_summary).sort_values("Last Visit", ascending=False)
+
+    # Color-coding Engagement Score
+    def highlight_engagement(val):
         color = "blue"
-        if score > 80:
+        if val > 80:
             color = "red"
-        elif score > 60:
+        elif val > 50:
             color = "green"
-        fig_score = px.bar(
-            x=[selected_company],
-            y=[score],
-            color_discrete_sequence=[color],
-            labels={"x": "Company", "y": "Engagement Score"},
-            title="Engagement Score",
-            range_y=[0, 100]
-        )
-        st.plotly_chart(fig_score, use_container_width=True)
+        return f"background-color: {color}; color: white"
 
-    with col2:
-        st.markdown("### 📊 Page Views by Day (Last 7 Days)")
-        recent_visits = filtered[filtered["timestamp"] >= pd.Timestamp.now() - pd.Timedelta(days=7)]
-        recent_visits["date"] = recent_visits["timestamp"].dt.date
-        daily_counts = recent_visits.groupby("date").size().reindex(
-            pd.date_range(end=pd.Timestamp.now(), periods=7).date, fill_value=0
-        )
-        fig_recent = px.bar(
-            x=daily_counts.index.astype(str),
-            y=daily_counts.values,
-            labels={"x": "Date", "y": "Page Views"},
-            title="Page Views in Last 7 Days"
-        )
-        st.plotly_chart(fig_recent, use_container_width=True)
+    styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
+    st.dataframe(styled_df, use_container_width=True)
 
-# ---------- Visitor Sessions ----------
-st.markdown("---")
-st.subheader("Visitor Sessions")
-session_groups = filtered.groupby("session_id")
+    # ---------- Charts ----------
+    if selected_company == "All":
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("### 📊 Sessions by Company")
+            fig_sessions = px.pie(summary_df, names="Company", values="Sessions", title="Sessions Distribution")
+            st.plotly_chart(fig_sessions, use_container_width=True)
+        with col2:
+            st.markdown("### 📊 Pages Viewed by Company")
+            fig_pages = px.pie(summary_df, names="Company", values="Pages Viewed", title="Pages Viewed Distribution")
+            st.plotly_chart(fig_pages, use_container_width=True)
+    else:
+        col1, col2 = st.columns(2)
 
-for session_id, group in session_groups:
-    visitor_ip = group["ip"].iloc[0]
-    enrichment = enrich_ip(visitor_ip)
+        with col1:
+            st.markdown("### 📊 Engagement Score (1–100)")
+            score = summary_df["Engagement Score"].values[0]
+            color = "blue"
+            if score > 80:
+                color = "red"
+            elif score > 50:
+                color = "green"
+            fig_score = px.bar(
+                x=[selected_company],
+                y=[score],
+                color_discrete_sequence=[color],
+                labels={"x": "Company", "y": "Engagement Score"},
+                title="Engagement Score",
+                range_y=[0, 100]
+            )
+            st.plotly_chart(fig_score, use_container_width=True)
 
-    with st.expander(f"Session {session_id} - {visitor_ip}"):
-        st.write(f"**Company**: {group['company_name'].iloc[0]}")
-        st.write(f"**Location**: {group['state'].iloc[0]}")
-        st.write(f"**Vertical**: {group['vertical'].iloc[0]}")
-        st.write(f"**Repeat Visits**: {group['repeat_visits'].iloc[0]}")
-        st.write(f"**Pages Viewed**: {group['total_pages_viewed'].iloc[0]}")
-        st.write(f"**Engagement Score**: {group['engagement_score'].iloc[0]}")
-        st.write(f"**CRM Match**: {group['contact_match_in_crm'].iloc[0]}")
+        with col2:
+            st.markdown("### 📊 Page Views by Day (Last 7 Days)")
+            recent_visits = filtered[filtered["timestamp"] >= pd.Timestamp.now() - pd.Timedelta(days=7)]
+            recent_visits["date"] = recent_visits["timestamp"].dt.date
+            daily_counts = recent_visits.groupby("date").size().reindex(
+                pd.date_range(end=pd.Timestamp.now(), periods=7).date, fill_value=0
+            )
+            fig_recent = px.bar(
+                x=daily_counts.index.astype(str),
+                y=daily_counts.values,
+                labels={"x": "Date", "y": "Page Views"},
+                title="Page Views in Last 7 Days"
+            )
+            st.plotly_chart(fig_recent, use_container_width=True)
 
-        st.markdown("**Page Visits:**")
-        st.table(group[["timestamp", "url", "intent", "sentiment"]].sort_values("timestamp"))
+    # ---------- Visitor Sessions ----------
+    st.markdown("---")
+    st.subheader("Visitor Sessions")
+    session_groups = filtered.groupby("session_id")
 
-st.markdown("\n---\n🔗 *Note: Data is demo-only. Replace with real weblogs + API enrichment for production.*")
+    for session_id, group in session_groups:
+        visitor_ip = group["ip"].iloc[0]
+        enrichment = enrich_ip(visitor_ip)
+
+        with st.expander(f"Session {session_id} - {visitor_ip}"):
+            st.write(f"**Company**: {group['company_name'].iloc[0]}")
+            st.write(f"**Location**: {group['state'].iloc[0]}")
+            st.write(f"**Vertical**: {group['vertical'].iloc[0]}")
+            st.write(f"**Repeat Visits**: {group['repeat_visits'].iloc[0]}")
+            st.write(f"**Pages Viewed**: {group['total_pages_viewed'].iloc[0]}")
+            st.write(f"**Engagement Score**: {group['engagement_score'].iloc[0]}")
+            st.write(f"**CRM Match**: {group['contact_match_in_crm'].iloc[0]}")
+
+            st.markdown("**Page Visits:**")
+            st.table(group[["timestamp", "url", "intent", "sentiment"]].sort_values("timestamp"))
+
+    st.markdown("\n---\n🔗 *Note: Data is demo-only. Replace with real weblogs + API enrichment for production.*")
