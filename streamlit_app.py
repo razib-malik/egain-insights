@@ -18,7 +18,7 @@ def enrich_ip(ip):
 # Load data (replace with your own log file)
 @st.cache_data
 def load_data():
-    data = pd.read_csv("sample_weblogs1.csv")
+    data = pd.read_csv("sample_weblogs.csv")
     data["timestamp"] = pd.to_datetime(data["timestamp"])
     return data
 
@@ -41,7 +41,7 @@ start_date = st.sidebar.date_input("Start Date", data["timestamp"].min().date())
 end_date = st.sidebar.date_input("End Date", data["timestamp"].max().date())
 
 # Text-based search bar
-search_query = st.text_input("🔎 Search (company, state, vertical)", "")
+search_query = st.text_input("🔎 Search (GovConnect, NY, Retail)", "")
 
 # Filter by date and company
 filtered = data[(data["timestamp"].dt.date >= start_date) & (data["timestamp"].dt.date <= end_date)]
