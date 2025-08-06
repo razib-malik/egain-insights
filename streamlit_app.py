@@ -17,6 +17,12 @@ def enrich_ip(ip):
 # Load data (replace with your own log file)
 @st.cache_data
 def load_data():
+    data = pd.read_csv("sample_weblogs.csv")
+    data["timestamp"] = pd.to_datetime(data["timestamp"])
+    return data
+
+'''
+def load_data():
     # Placeholder structure
     data = pd.DataFrame([
         {"timestamp": "2025-08-01 13:14:10", "ip": "8.8.8.8", "url": "/platform/api-docs", "session_id": "abc123"},
@@ -26,7 +32,7 @@ def load_data():
     ])
     data["timestamp"] = pd.to_datetime(data["timestamp"])
     return data
-
+'''
 # ---------- UI ----------
 st.set_page_config(page_title="eGain Visitor Insights", layout="wide")
 st.title("🔍 eGain Sales Intelligence Dashboard")
