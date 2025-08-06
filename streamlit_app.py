@@ -88,22 +88,46 @@ def highlight_engagement(val):
     return f"background-color: {color}; color: white"
 
 styled_df = summary_df.style.applymap(highlight_engagement, subset=["Engagement Score"])
-#st.dataframe(summary_df, use_container_width=True)
 st.dataframe(styled_df, use_container_width=True)
 
+# ---------- Charts ----------
+if selected_company == "All":
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("### 📊 Sessions by Company")
+        fig_sessions = px.pie(summary_df, names="Company", values="Sessions", title="Sessions Distribution")
+        st.plotly_chart(fig_sessions, use_container_width=True)
+    with col2:
+        st.markdown("### 📊 Pages Viewed by Company")
+        fig_pages = px.pie(summary_df, names="Company", values="Pages Viewed", title="Pages Viewed Distribution")
+        st.plotly_chart(fig_pages, use_container_width=True)
+else:
+    st.markdown("### 📊 Engagement Score (1–100)")
+    score = summary_df["Engagement Score"].values[0]
+    color = "blue"
+    if score > 80:
+        color = "red"
+    elif score > 50:
+        color = "green"
+    fig_score = px.bar(
+        x=[selected_company],
+        y=[score],
+        color_discrete_sequence=[color],
+        labels={"x": "Company", "y": "Engagement Score"},
+        title="Engagement Score"
+    )
+    st.plotly_chart(fig_score, use_container_width=True)
 
-# ---------- Dynamic Pie Charts ----------
-col1, col2 = st.columns(2)
-
-with col1:
-    st.markdown("### 📊 Sessions by Company")
-    fig_sessions = px.pie(summary_df, names="Company", values="Sessions", title="Sessions Distribution")
-    st.plotly_chart(fig_sessions, use_container_width=True)
-
-with col2:
-    st.markdown("### 📊 Pages Viewed by Company")
-    fig_pages = px.pie(summary_df, names="Company", values="Pages Viewed", title="Pages Viewed Distribution")
-    st.plotly_chart(fig_pages, use_container_width=True)
+    st.markdown("### 📊 Views in Last 7 Days")
+    recent_visits = filtered[filtered["timestamp"] >= pd.Timestamp.now() - pd.Timedelta(days=7)]
+    fig_recent = px.bar(
+        x=[selected_company],
+        y=[len(recent_visits)],
+        color_discrete_sequence=["gray"],
+        labels={"x": "Company", "y": "Page Views (7 Days)"},
+        title="Page Views in Last 7 Days"
+    )
+    st.plotly_chart(fig_recent, use_container_width=True)
 
 # ---------- Visitor Sessions ----------
 st.markdown("---")
