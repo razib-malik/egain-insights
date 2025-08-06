@@ -110,7 +110,7 @@ else:
         color = "blue"
         if score > 80:
             color = "red"
-        elif score > 50:
+        elif score > 60:
             color = "green"
         fig_score = px.bar(
             x=[selected_company],
