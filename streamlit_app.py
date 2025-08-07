@@ -18,7 +18,7 @@ def enrich_ip(ip):
 # Load data (replace with your own log file)
 @st.cache_data
 def load_data():
-    data = pd.read_csv("sample_weblogs.csv")
+    data = pd.read_csv("sample_weblogs_final.csv")
     data["timestamp"] = pd.to_datetime(data["timestamp"])
     return data
 
