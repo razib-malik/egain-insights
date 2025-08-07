@@ -84,9 +84,9 @@ else:
     # Color-coding Engagement Score
     def highlight_engagement(val):
         color = "blue"
-        if val > 80:
+        if val > 200:
             color = "red"
-        elif val > 60:
+        elif val > 150:
             color = "green"
         return f"background-color: {color}; color: white"
 
